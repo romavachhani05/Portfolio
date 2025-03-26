@@ -91,7 +91,5 @@ with pd.ExcelWriter(output_excel_file_path) as writer:
 print(f"Combined dataset summary has been saved to: {output_excel_file_path}")
 
 ##### Output
-![Python_Step2](Python_Projects/assets/img/Python _Step 2.jpg)
-
-
+![python_step2](assets/img/python_step2.jpg)
 <br>
