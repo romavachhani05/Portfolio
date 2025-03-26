@@ -45,7 +45,7 @@ Inland Empire Health Plan (IEHP) is a nonprofit public health provider offering 
 -	Designed and implemented an MS Access database for HEDIS, automating scheduling, chart collection, and faxing, boosting productivity by 70-85%.
 -	Built SQL-based ETL workflows for seamless data migration to a modern EDW, ensuring data accuracy and accessibility.
 -	Developed automated Power BI dashboards integrating HRA data, optimizing outreach efforts for Member Services.
-<br>**Tools**: MS Access, Power BI, MS SQL Server, T-SQL <br>
+<br>**Tools**: MS Access, Power BI, MS SQL Server, T-SQL <br> 
 
 ## Data Analyst Consultant 
 ### Common Securitization Solution | CA	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (March 2018 – Sept 2018)
