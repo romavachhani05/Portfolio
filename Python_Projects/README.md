@@ -91,7 +91,27 @@ with pd.ExcelWriter(output_excel_file_path) as writer:
 print(f"Combined dataset summary has been saved to: {output_excel_file_path}")
 
 ##### Output
-![Python_Step2](Python_Projects/assets/img/Python _Step 2.jpg)
-
-
+![python_step2](assets/img/python_step2.jpg)
 <br>
+
+## 3. Analysis of Dataset Alignment and Consistency Across Combined Spreadsheets
+
+After combining all three spreadsheets into a single Excel file, I conducted further analysis to identify key differences and similarities across the datasets. Specifically, I analyzed how the inclusion and exclusion data aligned with the artrya_coding_interview_primary_dataset (the original primary dataset). During this process, I ensured consistency by verifying study_id matches across all datasets. Additionally, I highlighted any inconsistencies, such as mismatched or missing study_id entries, and identified gaps in the data that require further processing for accurate and comprehensive analysis.
+### 3.1 Identify key differences and similarities across the datasets
+I compared the three datasets by their structure, column names, data types, and content. All datasets share a tabular format, were loaded as pandas DataFrames, and include an identifier column, like study_id, for linking or referencing. The primary dataset contains detailed patient and study information, while the inclusion and exclusion datasets act as filters for analysis. All datasets have some missing data, but the extent and affected columns vary.
+The primary dataset is comprehensive, with demographic details, medical risk factors, and identifiers like study_id and site_id. It is larger and supports in-depth analysis. In contrast, the inclusion and exclusion datasets are smaller, primarily containing study_id and, at times, reasons for inclusion or exclusion. These datasets are minimal, categorical, and serve as filters to determine which records from the primary dataset should be analyzed or excluded.
+In terms of purpose, the primary dataset provides detailed patient information, while the inclusion and exclusion datasets refine the scope of analysis by identifying records to include or exclude. Together, they complement each other, with the primary dataset serving as the foundation and the filters narrowing the focus.
+### Comparison Summary Table
+
+Feature	Primary Dataset	Inclusion Dataset	Exclusion Dataset
+Purpose	Comprehensive study and patient data	Inclusion criteria for analysis	Exclusion criteria for analysis
+| Feature           | Primary Dataset                              | Inclusion Dataset             | Exclusion Dataset             |
+|-------------------|-----------------------------------------------|-------------------------------|-------------------------------|
+| Purpose           | Comprehensive study and patient data          | Inclusion criteria for analysis | Exclusion criteria for analysis |
+| Key Column(s)     | study_id, age, sex, calcium_score             | study_id                      | study_id                      |
+| Number of Columns | Many (e.g., 10–15)                            | Few (e.g., 1–2)               | Few (e.g., 1–2)               |
+| Number of Rows    | Large (e.g., 500+)                            | Small (e.g., 100+)            | Small (e.g., 50+)             |
+| Data Types        | Mix of numeric, categorical, and datetime     | Categorical (object)          | Categorical (object)          |
+| Missing Data      | Yes, varies across columns                    | Minimal or none               | Minimal or none               |
+
+
