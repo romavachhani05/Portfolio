@@ -1,19 +1,19 @@
-# Data Scientist
+# Data Scientist | Business Intelligence Engineer
 
 ### Education
-Bachelor in Computer Science
+Bachelor of Science, Computer Science (2015)- Kean University, NJ, USA
 
-### Work Experience
-Clinical Systems Manager
-Ionis Pharmaceuticals Inc | CA							Jun 2021 -May 2024
+# Work Experience
+## Clinical Systems Manager
+### Ionis Pharmaceuticals Inc | CA (Jun 2021 -May 2024 )
 Ionis Pharmaceuticals Inc is a leading biotechnology company excels in RNA-targeted drug discovery and development
-•	Managed 75+ ETL integration jobs (IXRS, CRO, EDC, RAVE) for seamless CTMS data transfer.
-•	Resolved 50+ ETL data issues annually, reducing errors by 30% and improving system efficiency.
-•	Designed a Data Issue Tracker to enhance transparency and expedite issue resolution.
-•	Designed and automated clinical trial performance Power BI dashboard, allowing leadership to identify delays, risks, and resource inefficiencies early.
-•	Strengthened workflows and vendor relationships to address data discrepancies.
-•	Led ETL migration from MuleSoft to AWS, cutting record processing time by 45%.
-Tools: CTMS SharePoint Site, BioClinica Integration report, Veeva Vault, Power BI
+- Managed 75+ ETL integration jobs (IXRS, CRO, EDC, RAVE) for seamless CTMS data transfer.
+-	Resolved 50+ ETL data issues annually, reducing errors by 30% and improving system efficiency.
+-	Designed a Data Issue Tracker to enhance transparency and expedite issue resolution.
+-	Designed and automated clinical trial performance Power BI dashboard, allowing leadership to identify delays, risks, and resource inefficiencies early.
+-	Strengthened workflows and vendor relationships to address data discrepancies.
+-	Led ETL migration from MuleSoft to AWS, cutting record processing time by 45%.
+- **Tools**: CTMS SharePoint Site, BioClinica Integration report, Veeva Vault, Power BI
 
 Data Engineer
 Premier Healthcare Management | CA						May 2020 – Feb 2021
@@ -21,6 +21,7 @@ Premier Healthcare Management supports non-profits and private practices in expa
 •	Built mapping and parsing algorithms to automate 837 EDI file processing for seamless data integration.
 •	Streamlined data ingestion by automating member roster downloads, AWS S3 uploads, and ETL cycles.
 •	Developed a Python-based compliance workflow to exclude flagged providers from federal programs.
+
 Tools: Tableau 2020.2.1, Python, Jupyter Notebook, MySQL Workbench 8.0, AWS S3, MYSQL
 
 Electronic Data Interchange Analyst
