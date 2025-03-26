@@ -22,7 +22,7 @@ Ionis Pharmaceuticals Inc is a leading biotechnology company excels in RNA-targe
 <br>**Tools**: CTMS SharePoint Site, BioClinica Integration report, Veeva Vault, Power BI <br>
 
 ## Data Engineer
-### Premier Healthcare Management | CA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		(May 2020 – Feb 2021)
+### Premier Healthcare Management | CA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	(May 2020 – Feb 2021)
 Premier Healthcare Management supports non-profits and private practices in expanding preventive healthcare to underserved communities using technology.
 -	Built mapping and parsing algorithms to automate 837 EDI file processing for seamless data integration.
 -	Streamlined data ingestion by automating member roster downloads, AWS S3 uploads, and ETL cycles.
@@ -31,7 +31,7 @@ Premier Healthcare Management supports non-profits and private practices in expa
 <br>**Tools**: Tableau 2020.2.1, Python, Jupyter Notebook, MySQL Workbench 8.0, AWS S3, MYSQL <br>
 
 ## Electronic Data Interchange Analyst
-### Community Health Group | CA	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		(Sep 2019 – May 2020)
+### Community Health Group | CA	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Sep 2019 – May 2020)
 Community Health Group is a nonprofit health plan that provides Medi-Cal and Medicare services to members in San Diego County, ensuring access to quality healthcare and wellness programs.
 -	Analyzed, processed, and troubleshot HIPAA/EDI X12 ANSI 5010 transactions across multiple formats (837, 999, 277CA, 835, 834, etc.).
 -	Designed and optimized SQL queries and stored procedures, automating SSRS reports to reduce processing time by 40%.
