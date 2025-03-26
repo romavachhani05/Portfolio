@@ -114,4 +114,57 @@ Purpose	Comprehensive study and patient data	Inclusion criteria for analysis	Exc
 | Data Types        | Mix of numeric, categorical, and datetime     | Categorical (object)          | Categorical (object)          |
 | Missing Data      | Yes, varies across columns                    | Minimal or none               | Minimal or none               |
 
+### 3.2 Identify how the inclusions and exclusions data align with the primary dataset and categorization.
+#### Purpose of the code
+To analyze the alignment between the datasets, I began by checking the overlap of study_id values between the inclusions, exclusions, and primary dataset. This step identified how many study_ids in the inclusions dataset were present in the primary dataset and similarly, how many study_ids from the exclusions dataset aligned with the primary dataset. I then performed a conflict check to detect any study_ids that appeared in both the inclusions and exclusions datasets, as these represent conflicting criteria. Finally, I added a new column to the primary dataset to categorize each study_id. Each study_id was labeled as "Include" if it was found in the inclusions dataset, "Exclude" if it was found in the exclusions dataset, "Conflict" if it appeared in both inclusions and exclusions datasets, and "To Be Determined" if it was not present in either dataset. Below is the code to evaluate the relationships between the datasets and perform the categorization:  
 
+<br> **Code**
+import pandas as pd
+
+##### File paths
+primary_excel_file_path = r"C:\Users\username\Documents\MedTechProject\data\clinical_primary_dataset.xlsx"
+inclusion_excel_file_path = r"C:\Users\username\Documents\MedTechProject\data\inclusions.xlsx"
+exclusion_excel_file_path = r"C:\Users\username\Documents\MedTechProject\data\exclusions.xlsx"
+
+##### Load datasets
+primary_data = pd.read_excel(primary_excel_file_path)
+inclusion_data = pd.read_excel(inclusion_excel_file_path)
+exclusion_data = pd.read_excel(exclusion_excel_file_path)
+
+##### Ensure 'study_id' columns exist
+primary_ids = primary_data['study_id']
+inclusion_ids = inclusion_data['study_id']
+exclusion_ids = exclusion_data['study_id']
+
+##### Check alignment
+in_primary_and_inclusion = primary_ids.isin(inclusion_ids).sum()
+in_primary_and_exclusion = primary_ids.isin(exclusion_ids).sum()
+
+##### Check conflicts
+conflicts = inclusion_ids[inclusion_ids.isin(exclusion_ids)]
+
+##### Categorize 'study_id' in the primary dataset
+def categorize_study_id(row):
+    if row['study_id'] in conflicts.values:
+        return 'Conflict'
+    elif row['study_id'] in inclusion_ids.values:
+        return 'Include'
+    elif row['study_id'] in exclusion_ids.values:
+        return 'Exclude'
+    else:
+        return 'To Be Determined'
+
+primary_data['category'] = primary_data.apply(categorize_study_id, axis=1)
+
+##### Save the updated dataset
+output_file = r"C:\Users\username\Documents\MedTechProject\outputs\primary_data_categorized.xlsx"
+primary_data.to_excel(output_file, index=False)
+
+##### Print the results
+print(f"Study IDs in both Primary and Inclusion datasets: {in_primary_and_inclusion}")
+print(f"Study IDs in both Primary and Exclusion datasets: {in_primary_and_exclusion}")
+print(f"Study IDs in both Inclusion and Exclusion datasets (conflicts): {len(conflicts)}")
+print(f"Categorized dataset has been saved to: {output_file}")
+
+#### Output
+![python_step2](assets/img/step3.2.jpg)
