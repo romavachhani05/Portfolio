@@ -168,3 +168,68 @@ print(f"Categorized dataset has been saved to: {output_file}")
 
 #### Output
 ![python_step2](assets/img/step3.2.jpg)
+
+<br>
+
+## 3.3 Analyze inconsistencies and missing data in the datasets, which can help identify gaps for further processing
+
+#### Purpose of the Code
+To conduct the inconsistencies analysis, I used three datasets: the primary dataset, the inclusion dataset, and the exclusion dataset, with a focus on identifying missing data and inconsistencies. The analysis began by examining missing values in each dataset. Next, I compared study_id values across the datasets to identify discrepancies, such as study_ids that appear in one dataset but are absent in another. These discrepancies were categorized into four groups (e.g., Primary_Not_In_Inclusion, Inclusion_Not_In_Primary) and saved into an Excel file, with each category organized in separate sheets (tabs). The analysis concluded with a summary of the missing data and inconsistencies, along with the file path to the saved results
+
+<br> **Code**
+import pandas as pd
+
+#### File paths
+primary_excel_file_path = r"C:\Users\username\Documents\MedTechProject\data\clinical_primary_dataset.xlsx"  
+inclusion_excel_file_path = r"C:\Users\username\Documents\MedTechProject\data\inclusions.xlsx"  
+exclusion_excel_file_path = r"C:\Users\username\Documents\MedTechProject\data\exclusions.xlsx"  
+
+#### Load datasets
+primary_data = pd.read_excel(primary_excel_file_path)  
+inclusion_data = pd.read_excel(inclusion_excel_file_path)  
+exclusion_data = pd.read_excel(exclusion_excel_file_path)  
+
+#### Ensure 'study_id' columns exist  
+primary_ids = primary_data['study_id']  
+inclusion_ids = inclusion_data['study_id']  
+exclusion_ids = exclusion_data['study_id']  
+
+#### Check for missing data in each dataset  
+print("Missing Data Analysis:")  
+print(primary_data.isnull().sum())  
+print("\nInclusion Dataset Missing Data:")  
+print(inclusion_data.isnull().sum())  
+print("\nExclusion Dataset Missing Data:")  
+print(exclusion_data.isnull().sum())  
+
+#### Check for inconsistencies (study_ids present in one dataset but not in others)  
+in_primary_not_in_inclusion = primary_ids[~primary_ids.isin(inclusion_ids)]  
+in_primary_not_in_exclusion = primary_ids[~primary_ids.isin(exclusion_ids)]  
+in_inclusion_not_in_primary = inclusion_ids[~inclusion_ids.isin(primary_ids)]  
+in_exclusion_not_in_primary = exclusion_ids[~exclusion_ids.isin(primary_ids)]  
+
+print("\nInconsistencies Found:")  
+print(f"Study IDs in Primary but not in Inclusion: {len(in_primary_not_in_inclusion)}")  
+print(f"Study IDs in Primary but not in Exclusion: {len(in_primary_not_in_exclusion)}")  
+print(f"Study IDs in Inclusion but not in Primary: {len(in_inclusion_not_in_primary)}")  
+print(f"Study IDs in Exclusion but not in Primary: {len(in_exclusion_not_in_primary)}")  
+
+#### Save inconsistent IDs for further analysis  
+inconsistencies = {  
+    "Primary_Not_In_Inclusion": in_primary_not_in_inclusion,  
+    "Primary_Not_In_Exclusion": in_primary_not_in_exclusion,  
+    "Inclusion_Not_In_Primary": in_inclusion_not_in_primary,  
+    "Exclusion_Not_In_Primary": in_exclusion_not_in_primary,  
+}  
+
+output_file = r"C:\Users\username\Documents\MedTechProject\outputs\inconsistencies_analysis.xlsx"  
+with pd.ExcelWriter(output_file) as writer:  
+    for key, value in inconsistencies.items():  
+        value.to_frame(name=key).to_excel(writer, sheet_name=key, index=False)  
+
+print(f"\nInconsistencies have been saved to: {output_file}")  
+
+
+#### Output
+![python_step2](assets/img/python_step3.3.jpg)
+<br>
