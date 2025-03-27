@@ -92,7 +92,7 @@ plt.xlabel
 ![python_step7.3](assets/img/python_step7.3.png)
 
 
-## 9. Calcium Score Categorization and Risk Assessment
+## 8. Calcium Score Categorization and Risk Assessment
 #### Purpose of the code
 The purpose of my code is to explore and define calcium score categories by grouping scores into ranges and analyzing their association with severity levels. It identifies logical thresholds for risk levels such as low, moderate, and high, based on the distribution of calcium scores and their clinical relevance. The code also generates visualizations to support the analysis and provide actionable recommendations for meaningful calcium score ranges.
 A histogram is used to visualize the overall distribution of calcium scores, highlighting clusters and outliers, while a box plot compares ranges within predefined or suggested risk categories. These graphs simplify the analysis and help clinicians or researchers refine calcium score thresholds for risk assessments and clinical decisions.
@@ -147,3 +147,66 @@ print(f"Calcium score ranges and summary saved to: {output_file}")
 #### Output
 ![python_step8.1](assets/img/python_step8.1.png)
 ![python_step8.2](assets/img/python_step8.2.png)
+
+
+## 9. Imaging Machine Manufacturer Analysis
+#### Purpose of the code
+The purpose of my code is to analyze the distribution of imaging machine manufacturers in the dataset and explore whether certain manufacturers are associated with variations in reported risk factors or stenosis severity. By identifying patterns or discrepancies across manufacturers, my code provides insights into their potential impact on clinical outcomes. This analysis aims to determine whether the choice of manufacturer contributes to variability in imaging results, enabling informed decision-making and ensuring quality control in clinical studies.
+I chose a bar chart to display the distribution of imaging machine manufacturers because it provides a clear and intuitive view of their representation in the dataset. I also intended to include a box plot to analyze manufacturer-specific stenosis severity, highlighting variations across manufacturers, severity levels, and identifying outliers or trends. However, due to insufficient or missing data in the stenosis_severity column, I was unable to generate meaningful visualizations for the box plot.
+
+**Code**  
+import pandas as pd  
+import matplotlib.pyplot as plt  
+import seaborn as sns  
+
+# Load the dataset
+file_path = r"C:\Users\username\Documents\MedTechProject\data\primary_data_categorized.xlsx"  
+data = pd.read_excel(file_path)  
+
+# Ensure necessary columns exist
+required_columns = ['manufacturer_mapped', 'stenosis_severity']  
+missing_columns = [col for col in required_columns if col not in data.columns]  
+if missing_columns:  
+    raise ValueError(f"The following columns are missing: {', '.join(missing_columns)}")  
+
+# Visualization 1: Distribution of Imaging Machine Manufacturers  
+plt.figure(figsize=(10, 6))  
+sns.countplot(data=data, x='manufacturer_mapped', palette='Set3')  
+plt.title('Distribution of Imaging Machine Manufacturers', fontsize=14)  
+plt.xlabel('Manufacturer', fontsize=12)  
+plt.ylabel('Count', fontsize=12)  
+plt.xticks(rotation=45)  
+plt.grid(axis='y', linestyle='--', linewidth=0.7)  
+plt.show()  
+
+# Visualization 2: Stenosis Severity by Manufacturer (Bar Chart)  
+# Ensure 'stenosis_severity' is numeric for calculations  
+if not pd.api.types.is_numeric_dtype(data['stenosis_severity']):  
+    data['stenosis_severity'] = pd.to_numeric(data['stenosis_severity'], errors='coerce')  
+
+# Calculate mean stenosis severity by manufacturer  
+stenosis_mean = data.groupby('manufacturer_mapped')['stenosis_severity'].mean().reset_index()  
+
+# Bar Chart for Stenosis Severity  
+plt.figure(figsize=(12, 6))  
+sns.barplot(data=stenosis_mean, x='manufacturer_mapped', y='stenosis_severity', palette='coolwarm')  
+plt.title('Mean Stenosis Severity by Manufacturer', fontsize=14)  
+plt.xlabel('Manufacturer', fontsize=12)  
+plt.ylabel('Mean Stenosis Severity', fontsize=12)  
+plt.xticks(rotation=45)  
+plt.grid(axis='y', linestyle='--', linewidth=0.7)  
+plt.show()  
+
+# Summary of manufacturer-specific stenosis severity  
+manufacturer_summary = data.groupby('manufacturer_mapped')['stenosis_severity'].describe()  
+
+# Save the summary to an Excel file  
+output_file = r"C:\Users\username\Documents\MedTechProject\outputs\manufacturer_insights.xlsx"  
+manufacturer_summary.to_excel(output_file)  
+print(f"Manufacturer-specific insights saved to: {output_file}")  
+
+#### Output
+![python_step9.1](assets/img/python_step9.1.png)
+![python_step9.2](assets/img/python_step9.2.png)
+
+
