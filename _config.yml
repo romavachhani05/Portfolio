@@ -2,9 +2,11 @@ title: Roma Vachhani
 logo: assets/img/RV Initials.png
 description: Data Scientist | Business Intelligence Engineer
 show_downloads: true
-theme: jekyll-theme-minimal
+theme: jekyll-theme-cayman
 
-# Optional: Custom navigation links
+# Custom navigation links
 navigation:
+  - title: Home
+    url: /
   - title: Projects
-    url: Python_Projects
+    url: Python_Projects/
