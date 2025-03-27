@@ -1,4 +1,4 @@
-# Python-Driven Cardiovascular Data Exploration for MedTech
+# Python-Driven Cardiovascular Data Exploration for MedTech Organization
 
 ## Introduction Summary
 
