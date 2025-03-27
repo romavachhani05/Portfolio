@@ -319,6 +319,6 @@ plt.grid(axis='y', linestyle='--', linewidth=0.7)
 plt.show()  
 
 #### Output
-![python_step2](assets/img/python_step5.1.jpg)
-![python_step2](assets/img/python_step5.2.jpg)
-![python_step2](assets/img/python_step5.3.jpg)
+![python_step5.1](assets/img/python_step5.1.png)
+![python_step5.2](assets/img/python_step5.2.png)
+![python_step5.3](assets/img/python_step5.3.png)
