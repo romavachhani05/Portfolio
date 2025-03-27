@@ -145,5 +145,5 @@ print(f"Calcium score ranges and summary saved to: {output_file}")
 
 
 #### Output
-![python_step7.1](assets/img/python_step7.1.png)
-![python_step7.2](assets/img/python_step7.2.png)
+![python_step8.1](assets/img/python_step8.1.png)
+![python_step8.2](assets/img/python_step8.2.png)
