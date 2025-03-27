@@ -21,3 +21,6 @@ Through visualizations, tabular summaries, and structured insights, this analysi
 ### Skill used for this Project
 1. Data Handling with pandas
 2. Data Visualization with matplotlib & seaborn
+
+
+##### Note: Code analysis is distributed in two different files such as analysis_details_1 & analysis_details_2.
