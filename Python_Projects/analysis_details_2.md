@@ -102,17 +102,17 @@ import pandas as pd
 import matplotlib.pyplot as plt  
 import seaborn as sns  
 
-# Load the dataset
+#### Load the dataset
 file_path = r"C:\Users\username\Documents\MedTechProject\data\primary_data_categorized.xlsx"  
 data = pd.read_excel(file_path)  
 
-# Ensure necessary columns exist
+#### Ensure necessary columns exist
 required_columns = ['calcium_score_modified', 'stenosis_severity']  
 missing_columns = [col for col in required_columns if col not in data.columns]  
 if missing_columns:  
     raise ValueError(f"The following columns are missing: {', '.join(missing_columns)}")  
 
-# Explore calcium score distribution  
+#### Explore calcium score distribution  
 plt.figure(figsize=(10, 6))  
 sns.histplot(data['calcium_score_modified'], kde=True, bins=30, color='skyblue')  
 plt.title('Distribution of Calcium Scores', fontsize=14)  
@@ -121,7 +121,7 @@ plt.ylabel('Frequency', fontsize=12)
 plt.grid(axis='y', linestyle='--', linewidth=0.7)  
 plt.show()  
 
-# Boxplot to analyze calcium scores by severity levels  
+#### Boxplot to analyze calcium scores by severity levels  
 plt.figure(figsize=(10, 6))  
 sns.boxplot(data=data, x='stenosis_severity', y='calcium_score_modified', palette='coolwarm')  
 plt.title('Calcium Score by Stenosis Severity', fontsize=14)  
@@ -130,15 +130,15 @@ plt.ylabel('calcium_score_modified', fontsize=12)
 plt.grid(axis='y', linestyle='--', linewidth=0.7)  
 plt.show()  
 
-# Suggest calcium score ranges by analyzing quartiles  
+#### Suggest calcium score ranges by analyzing quartiles  
 data['calcium_score_range'] = pd.qcut(data['calcium_score_modified'], q=4, labels=['Low', 'Moderate', 'High', 'Very High'])  
 
-# Summary of calcium scores by ranges  
+#### Summary of calcium scores by ranges  
 range_summary = data.groupby('calcium_score_range')['calcium_score_modified'].agg(['min', 'max', 'mean']).reset_index()  
 print("Suggested Calcium Score Ranges:")  
 print(range_summary)  
 
-# Save the summary to an Excel file  
+#### Save the summary to an Excel file  
 output_file = r"C:\Users\username\Documents\MedTechProject\outputs\calcium_score_ranges.xlsx"  
 range_summary.to_excel(output_file, index=False)  
 print(f"Calcium score ranges and summary saved to: {output_file}")  
@@ -159,17 +159,17 @@ import pandas as pd
 import matplotlib.pyplot as plt  
 import seaborn as sns  
 
-# Load the dataset
+#### Load the dataset
 file_path = r"C:\Users\username\Documents\MedTechProject\data\primary_data_categorized.xlsx"  
 data = pd.read_excel(file_path)  
 
-# Ensure necessary columns exist
+#### Ensure necessary columns exist
 required_columns = ['manufacturer_mapped', 'stenosis_severity']  
 missing_columns = [col for col in required_columns if col not in data.columns]  
 if missing_columns:  
     raise ValueError(f"The following columns are missing: {', '.join(missing_columns)}")  
 
-# Visualization 1: Distribution of Imaging Machine Manufacturers  
+#### Visualization 1: Distribution of Imaging Machine Manufacturers  
 plt.figure(figsize=(10, 6))  
 sns.countplot(data=data, x='manufacturer_mapped', palette='Set3')  
 plt.title('Distribution of Imaging Machine Manufacturers', fontsize=14)  
@@ -179,15 +179,15 @@ plt.xticks(rotation=45)
 plt.grid(axis='y', linestyle='--', linewidth=0.7)  
 plt.show()  
 
-# Visualization 2: Stenosis Severity by Manufacturer (Bar Chart)  
-# Ensure 'stenosis_severity' is numeric for calculations  
+#### Visualization 2: Stenosis Severity by Manufacturer (Bar Chart)  
+#### Ensure 'stenosis_severity' is numeric for calculations  
 if not pd.api.types.is_numeric_dtype(data['stenosis_severity']):  
     data['stenosis_severity'] = pd.to_numeric(data['stenosis_severity'], errors='coerce')  
 
-# Calculate mean stenosis severity by manufacturer  
+#### Calculate mean stenosis severity by manufacturer  
 stenosis_mean = data.groupby('manufacturer_mapped')['stenosis_severity'].mean().reset_index()  
 
-# Bar Chart for Stenosis Severity  
+#### Bar Chart for Stenosis Severity  
 plt.figure(figsize=(12, 6))  
 sns.barplot(data=stenosis_mean, x='manufacturer_mapped', y='stenosis_severity', palette='coolwarm')  
 plt.title('Mean Stenosis Severity by Manufacturer', fontsize=14)  
@@ -197,10 +197,10 @@ plt.xticks(rotation=45)
 plt.grid(axis='y', linestyle='--', linewidth=0.7)  
 plt.show()  
 
-# Summary of manufacturer-specific stenosis severity  
+#### Summary of manufacturer-specific stenosis severity  
 manufacturer_summary = data.groupby('manufacturer_mapped')['stenosis_severity'].describe()  
 
-# Save the summary to an Excel file  
+#### Save the summary to an Excel file  
 output_file = r"C:\Users\username\Documents\MedTechProject\outputs\manufacturer_insights.xlsx"  
 manufacturer_summary.to_excel(output_file)  
 print(f"Manufacturer-specific insights saved to: {output_file}")  
