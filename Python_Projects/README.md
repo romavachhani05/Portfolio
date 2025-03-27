@@ -17,4 +17,5 @@ Standardizing race and ethnicity categories in line with FDA guidelines
 Through visualizations, tabular summaries, and structured insights, this analysis aimed to support better clinical decision-making, improve study design, and identify representation gaps in the data.
 
 ### Skill used for this Project
-Python
+1. Data Handling with pandas
+2. Data Visualization with matplotlib & seaborn
