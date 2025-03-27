@@ -1,4 +1,6 @@
-# Introduction Summary
+# Python-Driven Cardiovascular Data Exploration for MedTech
+
+## Introduction Summary
 
 This project involved analyzing clinical datasets from an AI-driven med tech company focused on cardiovascular imaging. Their work leverages artificial intelligence to improve diagnostic accuracy and enable early detection of coronary artery disease.
 
