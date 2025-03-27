@@ -33,6 +33,9 @@ print(f"Updated dataset with 'site_of_treatment' column saved to: {output_file}"
 ![python_step6](assets/img/python_step6.jpg)
 
 ## 7.Demographic Analysis and Visualization of Patient Data
+
+#### Purpose of the code
+
 The purpose of the code below is to analyze and visualize the demographics of the dataset, focusing on the distribution of age, gender, and race among patients categorized as "Included," "Excluded," or "To Be Determined" (TBD). I ensured that all necessary columns for the analysis were present, and the visualizations generated highlight patterns, trends, or disparities in these demographic groups. Additionally, I saved a summary table with descriptive statistics for age into an Excel file to allow for further analysis or reporting.
 
 I carefully designed the graph selection to provide clear and actionable insights. For gender distribution, I used a bar chart to offer a straightforward comparison of male and female patients across inclusion categories, making it easy to spot potential disparities in representation. Similarly, I used another bar chart to display the racial composition across inclusion categories, highlighting any over- or under-representation of specific racial groups and supporting diversity analysis. For age distribution, I replaced the histogram with a box plot to better summarize the data. The box plot makes it easier to identify the median, interquartile range, and outliers in age for each inclusion category, enabling a more precise comparison between groups.
@@ -84,6 +87,6 @@ plt.xlabel
 
 #### Output
 
-![python_step7.1](assets/img/python_step7.1.jpg)
-![python_step7.2](assets/img/python_step7.2.jpg)
-![python_step7.3](assets/img/python_step7.3.jpg)
+![python_step7.1](assets/img/python_step7.1.png)
+![python_step7.2](assets/img/python_step7.2.png)
+![python_step7.3](assets/img/python_step7.3.png)
