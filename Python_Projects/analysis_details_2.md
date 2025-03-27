@@ -84,6 +84,6 @@ plt.xlabel
 
 #### Output
 
-![python_step7.1](assets/img/python_step7.1.jpg)
-![python_step7.2](assets/img/python_step7.2.jpg)
-![python_step7.3](assets/img/python_step7.3.jpg)
+![python_step7.1](assets/img/python_step7.1.png)
+![python_step7.2](assets/img/python_step7.2.png)
+![python_step7.3](assets/img/python_step7.3.png)
