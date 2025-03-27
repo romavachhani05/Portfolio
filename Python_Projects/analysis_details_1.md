@@ -215,3 +215,110 @@ print(f"\nInconsistencies have been saved to: {output_file}")
 #### Output
 ![python_step2](assets/img/python_step3.3.jpg)
 <br>
+
+
+## 4. Provide the reviewer an idea of unique categories for all categorical variables 
+
+#### Purpose of the code
+The purpose of the code below is to analyze the categorical variables in a dataset by identifying and summarizing their unique categories. I first load the dataset from an Excel file and detect all columns containing categorical data types. For each categorical variable, I calculate the number of unique categories and provide a sample of up to five unique values. This information is then compiled into a summary DataFrame, which is displayed and saved as an Excel file for further analysis. This process allows me to better understand the structure and diversity of the categorical data, which is crucial for data exploration and preprocessing.
+
+**Code**
+
+import pandas as pd
+
+#### Load datasets
+primary_excel_file_path = r"C:\Users\username\Documents\MedTechProject\data\clinical_primary_dataset.xlsx"  
+primary_data = pd.read_excel(primary_excel_file_path)  
+
+#### Identify categorical variables
+categorical_columns = primary_data.select_dtypes(include=['object', 'category']).columns.tolist()  
+
+#### Extract unique categories for each categorical variable  
+unique_categories_summary = {  
+    "Column": [],  
+    "Number of Unique Categories": [],  
+    "Unique Categories (Sample)": []  
+}
+
+for column in categorical_columns:  
+    unique_categories = primary_data[column].dropna().unique()  # Remove NaN for uniqueness  
+    unique_categories_summary["Column"].append(column)  
+    unique_categories_summary["Number of Unique Categories"].append(len(unique_categories))  
+    unique_categories_summary["Unique Categories (Sample)"].append(unique_categories[:5])  # Show up to 5 examples  
+
+#### Convert the summary into a DataFrame  
+unique_categories_df = pd.DataFrame(unique_categories_summary)  
+
+#### Display the summary to the user  
+print("Summary of Unique Categories for Categorical Variables:")  
+print(unique_categories_df)  
+
+#### Save the summary to an Excel file  
+output_path = r"C:\Users\username\Documents\MedTechProject\outputs\unique_categories_summary.xlsx"  
+unique_categories_df.to_excel(output_path, index=False)  
+print(f"Unique categories summary saved to: {output_path}")  
+
+#### Output
+![python_step2](assets/img/python_step4.jpg)
+
+## 5. Stratified view of race and gender by stenosis severity using a tabular summary
+#### Purpose of the code1
+Code 1 : The purpose of the code below is to analyze and visualize the relationship between race, gender, stenosis severity, and calcium scores in the dataset. I ensured that all necessary columns for the analysis were present and created a stratified summary of stenosis severity by race and gender. The code also examines calcium score ranges by risk category to better understand their distribution and variations. I generated three visualizations to provide clear insights: a bar chart to illustrate the distribution of stenosis severity across race and gender, a box plot to analyze the distribution of calcium scores within risk categories, and a histogram to show the overall distribution of calcium scores. These visualizations are designed to help identify trends, disparities, and patterns that are critical for clinical or analytical decisions.
+
+**Code** 
+
+import pandas as pd  
+import matplotlib.pyplot as plt  
+import seaborn as sns  
+
+#### Load the dataset
+file_path = r"C:\Users\username\Documents\MedTechProject\data\clinical_primary_dataset.xlsx"  
+data = pd.read_excel(file_path)  
+
+#### Required columns for analysis  
+required_columns = ['race_mapped', 'sex', 'stenosis_severity', 'calcium_score_modified', 'calcium_score_risk_cat']  
+
+#### Check for missing columns  
+missing_columns = [col for col in required_columns if col not in data.columns]  
+if missing_columns:  
+    raise ValueError(f"The following required columns are missing: {', '.join(missing_columns)}")  
+
+#### Stratified view of race and gender by stenosis severity  
+stratified_summary = data.groupby(['race_mapped', 'sex', 'stenosis_severity']).size().reset_index(name='count')  
+
+#### Visualization 1: Bar chart for stratified summary  
+plt.figure(figsize=(12, 6))  
+sns.barplot(data=stratified_summary, x='stenosis_severity', y='count', hue='sex', palette='viridis')  
+plt.title('Stenosis Severity Stratified by Race and Gender', fontsize=14)  
+plt.xlabel('Stenosis Severity', fontsize=12)  
+plt.ylabel('Count', fontsize=12)  
+plt.legend(title='Gender', fontsize=10)  
+plt.grid(axis='y', linestyle='--', linewidth=0.7)  
+plt.show()  
+
+#### Assess calcium score ranges by risk category  
+calcium_score_ranges = data.groupby('calcium_score_risk_cat')['calcium_score_modified'].agg(['min', 'max', 'mean']).reset_index()  
+
+#### Visualization 2: Boxplot for calcium scores by risk category  
+plt.figure(figsize=(12, 6))  
+sns.boxplot(data=data, x='calcium_score_risk_cat', y='calcium_score_modified', palette='coolwarm')  
+plt.title('Calcium Score Distribution by Risk Category', fontsize=14)  
+plt.xlabel('Calcium Score Risk Category', fontsize=12)  
+plt.ylabel('calcium_score_modified', fontsize=12)  
+plt.xticks(rotation=45)  
+plt.grid(axis='y', linestyle='--', linewidth=0.7)  
+plt.show()  
+
+#### Visualization 3: Histogram for calcium score distribution  
+plt.figure(figsize=(10, 6))  
+sns.histplot(data['calcium_score_modified'], kde=True, bins=30, color='skyblue')  
+plt.title('Overall Distribution of Calcium Scores', fontsize=14)  
+plt.xlabel('calcium_score_modified', fontsize=12)  
+plt.ylabel('Frequency', fontsize=12)  
+plt.grid(axis='y', linestyle='--', linewidth=0.7)  
+plt.show()  
+
+#### Output
+![python_step2](assets/img/python_step5.1.jpg)
+![python_step2](assets/img/python_step5.2.jpg)
+![python_step2](assets/img/python_step5.3.jpg)
