@@ -90,3 +90,60 @@ plt.xlabel
 ![python_step7.1](assets/img/python_step7.1.png)
 ![python_step7.2](assets/img/python_step7.2.png)
 ![python_step7.3](assets/img/python_step7.3.png)
+
+
+## 9. Calcium Score Categorization and Risk Assessment
+#### Purpose of the code
+The purpose of my code is to explore and define calcium score categories by grouping scores into ranges and analyzing their association with severity levels. It identifies logical thresholds for risk levels such as low, moderate, and high, based on the distribution of calcium scores and their clinical relevance. The code also generates visualizations to support the analysis and provide actionable recommendations for meaningful calcium score ranges.
+A histogram is used to visualize the overall distribution of calcium scores, highlighting clusters and outliers, while a box plot compares ranges within predefined or suggested risk categories. These graphs simplify the analysis and help clinicians or researchers refine calcium score thresholds for risk assessments and clinical decisions.
+
+**Code**
+import pandas as pd  
+import matplotlib.pyplot as plt  
+import seaborn as sns  
+
+# Load the dataset
+file_path = r"C:\Users\username\Documents\MedTechProject\data\primary_data_categorized.xlsx"  
+data = pd.read_excel(file_path)  
+
+# Ensure necessary columns exist
+required_columns = ['calcium_score_modified', 'stenosis_severity']  
+missing_columns = [col for col in required_columns if col not in data.columns]  
+if missing_columns:  
+    raise ValueError(f"The following columns are missing: {', '.join(missing_columns)}")  
+
+# Explore calcium score distribution  
+plt.figure(figsize=(10, 6))  
+sns.histplot(data['calcium_score_modified'], kde=True, bins=30, color='skyblue')  
+plt.title('Distribution of Calcium Scores', fontsize=14)  
+plt.xlabel('Calcium_score', fontsize=12)  
+plt.ylabel('Frequency', fontsize=12)  
+plt.grid(axis='y', linestyle='--', linewidth=0.7)  
+plt.show()  
+
+# Boxplot to analyze calcium scores by severity levels  
+plt.figure(figsize=(10, 6))  
+sns.boxplot(data=data, x='stenosis_severity', y='calcium_score_modified', palette='coolwarm')  
+plt.title('Calcium Score by Stenosis Severity', fontsize=14)  
+plt.xlabel('Stenosis Severity', fontsize=12)  
+plt.ylabel('calcium_score_modified', fontsize=12)  
+plt.grid(axis='y', linestyle='--', linewidth=0.7)  
+plt.show()  
+
+# Suggest calcium score ranges by analyzing quartiles  
+data['calcium_score_range'] = pd.qcut(data['calcium_score_modified'], q=4, labels=['Low', 'Moderate', 'High', 'Very High'])  
+
+# Summary of calcium scores by ranges  
+range_summary = data.groupby('calcium_score_range')['calcium_score_modified'].agg(['min', 'max', 'mean']).reset_index()  
+print("Suggested Calcium Score Ranges:")  
+print(range_summary)  
+
+# Save the summary to an Excel file  
+output_file = r"C:\Users\username\Documents\MedTechProject\outputs\calcium_score_ranges.xlsx"  
+range_summary.to_excel(output_file, index=False)  
+print(f"Calcium score ranges and summary saved to: {output_file}")  
+
+
+#### Output
+![python_step7.1](assets/img/python_step7.1.png)
+![python_step7.2](assets/img/python_step7.2.png)
