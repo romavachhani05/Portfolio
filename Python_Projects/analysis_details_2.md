@@ -30,4 +30,4 @@ print(data[['mod_patient_id', 'site_of_treatment']].head())
 print(f"Updated dataset with 'site_of_treatment' column saved to: {output_file}")  
 
 #### Output
-
+![python_step6](assets/img/python_step6.jpg)
