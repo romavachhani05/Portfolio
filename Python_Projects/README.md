@@ -1,3 +1,6 @@
+**This repository is licensed as "View Only – No reuse without permission."**
+
+
 # Python-Driven Cardiovascular Data Exploration for MedTech Organization
 
 ## Introduction Summary
