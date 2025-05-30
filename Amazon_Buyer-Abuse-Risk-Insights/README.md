@@ -59,7 +59,7 @@ Sample queries included:
 
 See: [`ABAR_SQL_Analysis`](Amazon_Buyer-Abuse-Risk-Insights/ABAR_SQL_Analysis/)
 
-Amazon_Buyer-Abuse-Risk-Insights/ABAR_SQL_Analysis/
+
 
 ---
 
