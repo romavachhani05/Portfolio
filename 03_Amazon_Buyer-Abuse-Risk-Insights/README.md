@@ -15,25 +15,6 @@ This project simulates a buyer abuse prevention analytics pipeline inspired by A
 
 ---
 
-## 📂 Project Structure
-
-```
-buyer-abuse-risk-insights/
-│
-├── data/                            # Simulated SQLite database
-├── eda_analysis.py                 # Python EDA script (visuals)
-├── abuse_prediction_model.py       # ML model for abuse classification
-├── sql/
-│   └── buyer_abuse_insights.sql    # Insightful SQL queries
-├── dashboards/                     # Power BI or Tableau (optional)
-├── classification_report.csv       # Model performance summary
-├── confusion_matrix.csv            # Prediction breakdown
-├── README.md
-└── requirements.txt
-```
-
----
-
 ## 🧪 Dataset Description
 
 Simulated dataset contains 10,000 buyer transactions with fields:
@@ -58,8 +39,6 @@ Sample queries included:
 - Location/IP mismatch statistics
 
 See: [`SQL Insights`](https://github.com/romavachhani05/Portfolio/tree/main/03_Amazon_Buyer-Abuse-Risk-Insights/SQL_Insights)
-
-
 
 
 ---
@@ -97,40 +76,7 @@ See: [` Machine Learning`](https://github.com/romavachhani05/Portfolio/tree/main
 
 ---
 
-## 🚀 How to Run
 
-1. Clone the repo
-2. Ensure Python 3.x is installed
-3. Install dependencies:
-    ```
-    pip install -r requirements.txt
-    ```
-4. Run analysis:
-    ```
-    python eda_analysis.py
-    python abuse_prediction_model.py
-    ```
-
----
-
-## 🎯 Role Alignment
-
-This project aligns with the responsibilities of a **Business Analyst on Amazon's Buyer Abuse Prevention (BAP)** team by demonstrating:
-
-- Data modeling and EDA on abusive patterns
-- Collaboration with ML for risk scoring
-- Business-oriented insights through SQL and BI tools
-- Practical storytelling through visualizations and metrics
-
----
-
-## 🛠️ Future Enhancements
-
-- Deploy model via Flask or Streamlit for scoring
-- Integrate AWS S3 and Lambda for real-time ingestion
-- Add Power BI dashboards
-
----
 
 ## 📬 Contact
 
