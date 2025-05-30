@@ -72,7 +72,7 @@ Run `eda_analysis.py` to generate:
 - Abuse hotspots by location
 - Refund amount distribution
 
-See: [`Visual Analytics Using Python`](https://github.com/romavachhani05/Portfolio/tree/main/03_Amazon_Buyer-Abuse-Risk-Insights/Machine%20Learning)
+See: [`Visual Analytics Using Python`](https://github.com/romavachhani05/Portfolio/tree/main/03_Amazon_Buyer-Abuse-Risk-Insights/Visual_Analytics_Using_Python)
 
 Charts saved in `.png` files.
 
