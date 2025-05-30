@@ -1,4 +1,4 @@
-# SQL Analysis
+# SQL Insight
 
 ## The following SQL insights have been generated from your synthetic buyer abuse dataset:
 	1. Top 10 Buyers by Number of Returns
