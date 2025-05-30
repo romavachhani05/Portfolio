@@ -1,0 +1,4 @@
+device_type,total_transactions,total_abuse,abuse_rate
+Desktop,3360,134,0.04
+Mobile,3244,161,0.05
+Tablet,3396,189,0.056
