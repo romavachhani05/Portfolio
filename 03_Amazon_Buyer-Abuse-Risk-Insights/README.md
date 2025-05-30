@@ -1,8 +1,8 @@
 **This repository is licensed as "View Only – No reuse without permission."**
 
-# 🛡️ Amazon Buyer Abuse Risk Detection and Analytics
+# 🛡️ Risk & Fraud Analytics for E-commerce Platforms
 
-This project simulates a buyer abuse prevention analytics pipeline inspired by Amazon's Buyer Abuse Prevention (BAP) team. It demonstrates data modeling, SQL analysis, machine learning, and business intelligence practices relevant to detecting abusive patterns in e-commerce transactions.
+This project simulates a buyer abuse prevention analytics pipeline inspired by Risk & Fraud Analytics for E-commerce Platforms. It demonstrates data modeling, SQL analysis, machine learning, and business intelligence practices relevant to detecting abusive patterns in e-commerce transactions.
 
 ---
 
