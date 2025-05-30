@@ -57,7 +57,7 @@ Sample queries included:
 - Refund behavior
 - Location/IP mismatch statistics
 
-See: [`sql/buyer_abuse_insights.sql`](buyer-abuse-risk-insights/ABA_SQL_Analysis)
+See: [`ABAR_SQL_Analysis`](Amazon_Buyer-Abuse-Risk-Insights/ABAR_SQL_Analysis/)
 
 ---
 
