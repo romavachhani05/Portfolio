@@ -57,7 +57,7 @@ Sample queries included:
 - Refund behavior
 - Location/IP mismatch statistics
 
-See: [`SQL Insights`](https://github.com/romavachhani05/portfolio/tree/main/buyer-abuse-risk-insights/ABA_SQL_Analysis))
+See: [`SQL Insights`](https://github.com/romavachhani05/portfolio/tree/main/buyer-abuse-risk-insights/ABA_SQL_Analysis)
 
 
 
