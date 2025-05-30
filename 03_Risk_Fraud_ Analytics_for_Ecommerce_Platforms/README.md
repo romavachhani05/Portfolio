@@ -40,7 +40,7 @@ Sample queries included:
 - Refund behavior
 - Location/IP mismatch statistics
 
-See: [`SQL Insights`](https://github.com/romavachhani05/Portfolio/tree/main/03_Amazon_Buyer-Abuse-Risk-Insights/SQL_Insights)
+See: [`SQL Insights`](https://github.com/romavachhani05/Portfolio/tree/main/03_Risk_Fraud_%20Analytics_for_Ecommerce_Platforms/SQL_Insights)
 
 
 ---
@@ -53,7 +53,7 @@ Run `eda_analysis.py` to generate:
 - Abuse hotspots by location
 - Refund amount distribution
 
-See: [`Visual Analytics Using Python`](https://github.com/romavachhani05/Portfolio/tree/main/03_Amazon_Buyer-Abuse-Risk-Insights/Visual_Analytics_Using_Python)
+See: [`Visual Analytics Using Python`](https://github.com/romavachhani05/Portfolio/tree/main/03_Risk_Fraud_%20Analytics_for_Ecommerce_Platforms/Visual_Analytics_Using_Python)
 
 Charts saved in `.png` files.
 
@@ -73,7 +73,7 @@ Output:
 - confusion_matrix.csv
 
   
-See: [` Machine Learning`](https://github.com/romavachhani05/Portfolio/tree/main/Amazon_Buyer-Abuse-Risk-Insights/Machine%20Learning)
+See: [` Machine Learning`](https://github.com/romavachhani05/Portfolio/tree/main/03_Risk_Fraud_%20Analytics_for_Ecommerce_Platforms/Machine_Learning)
 
 
 ---
