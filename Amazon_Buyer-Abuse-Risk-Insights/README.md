@@ -57,14 +57,14 @@ Sample queries included:
 - Refund behavior
 - Location/IP mismatch statistics
 
-See: [`SQL Insights`](https://github.com/romavachhani05/Portfolio/tree/main/Amazon_Buyer-Abuse-Risk-Insights/ABAR_SQL_Analysis)
+See: [`SQL Insights`](https://github.com/romavachhani05/Portfolio/tree/main/Amazon_Buyer-Abuse-Risk-Insights/SQL_Insights)
 
 
 
 
 ---
 
-## 📊 Visual Analytics
+## 📊 Visual Analytics Using Python
 
 Run `eda_analysis.py` to generate:
 
@@ -72,7 +72,10 @@ Run `eda_analysis.py` to generate:
 - Abuse hotspots by location
 - Refund amount distribution
 
+See: [`Visual Analytics Using Python`](https://github.com/romavachhani05/Portfolio/tree/main/Amazon_Buyer-Abuse-Risk-Insights/SQL_Insights)
+
 Charts saved in `.png` files.
+
 
 ---
 
